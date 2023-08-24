@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom'
 import "./style.css";
 
 interface FormData {
@@ -11,9 +12,11 @@ export const MyForm = () => {
   const [formData, setFormData] = useState<FormData>({
     Name: "",
     Email: "",
-    Phone: 0,
+    Phone: NaN,
   });
   const [flag, setFlag] = useState(false);
+
+  const navigation=useNavigate();
 
   const Submit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,10 +27,12 @@ export const MyForm = () => {
       console.log(formData);
       localStorage.setItem("User", JSON.stringify(formData))
       setFormData({ Name: "", Email: "", Phone: 0 });
+      navigation("/profile")
     }
   };
 
-  //   console.log(formData);
+
+ 
   return (
     <form onSubmit={Submit} className="forms">
       <h1 style={{ textAlign: "center" }}>Sing Up</h1>
