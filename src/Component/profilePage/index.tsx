@@ -4,8 +4,8 @@ import Box from '@mui/material/Box';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
  
 import './style.css';
-import IndeterminateCheckbox from './Department';
-import { Balance } from '@mui/icons-material';
+import IndeterminateCheckbox from './department';
+
 
 interface Post {
   userId: number;
